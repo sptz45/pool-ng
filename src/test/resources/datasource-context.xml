@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean class="com.tzavellas.poolng.ds.SpringDataSourceSetup"></bean>
+ 
+	<bean id="ds" class="com.tzavellas.poolng.ds.DataSourceFactoryBean">
+		<property name="name" value="test-ds"/>
+		
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+		<property name="url" value="jdbc:hsqldb:mem:xdb"/>
+		<property name="username" value="sa"/>
+		<property name="password" value=""/>
+		
+		<property name="minIdle" value="2"/>
+		<property name="maxIdle" value="10"/>
+		<property name="evictionInterval" value="10min"/>
+		<property name="idleTimeout" value="5min"/>
+		
+		<property name="defaultAutocommit" value="false"/>
+		<property name="defaultReadOnly" value="false"/>
+		<property name="defaultTransactionsolation" value="REPEATABLE_READ"/>
+		<property name="defaultCatalog" value="myCatalog"/>
+		
+		<property name="poolSize" value="30"/>
+		<property name="connectionAcquisitionRetries" value="20"/>
+		<property name="connectionTimeout" value="10s"/>
+		<property name="shutdownTimeout" value="30sec"/>
+		
+		<property name="validateOnBorrow" value="false"/>
+		<property name="validateOnReturn" value="false"/>
+		<property name="validationTimeout" value="5sec"/>
+		
+		<property name="enableJmx" value="true"/>
+	</bean>
+
+</beans>
