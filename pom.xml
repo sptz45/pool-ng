@@ -172,4 +172,11 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<distributionManagement>
+		<repository>
+			<id>tzavellas.com-repo</id>
+			<url>scp://www.tzavellas.com:90/home/spiros/public_html/maven/</url>
+		</repository>
+	</distributionManagement>
 </project>
