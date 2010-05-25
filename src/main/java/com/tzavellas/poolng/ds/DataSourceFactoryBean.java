@@ -12,7 +12,7 @@ import com.tzavellas.poolng.jmx.JmxRegistrar;
  * 
  * @author spiros
  */
-public class DataSourceFactoryBean extends DataSourceFactory implements FactoryBean, DisposableBean {
+public class DataSourceFactoryBean extends DataSourceFactory implements FactoryBean<DefaultDataSource>, DisposableBean {
 	
 	private DefaultDataSource dataSource;
 	private JmxRegistrar registrar;
@@ -33,7 +33,7 @@ public class DataSourceFactoryBean extends DataSourceFactory implements FactoryB
 	 * <p>This FactoryBean is singleton, all invocations of this method
 	 * return the same object.
 	 */
-	public Object getObject() throws Exception {
+	public DefaultDataSource getObject() throws Exception {
 		if (dataSource == null) {
 			dataSource = create();
 			dataSource.init();
@@ -46,7 +46,7 @@ public class DataSourceFactoryBean extends DataSourceFactory implements FactoryB
 	/**
 	 * Supports {@link DefaultDataSource}.
 	 */
-	public Class<?> getObjectType() {
+	public Class<DefaultDataSource> getObjectType() {
 		return DefaultDataSource.class; 
 	}
 	
