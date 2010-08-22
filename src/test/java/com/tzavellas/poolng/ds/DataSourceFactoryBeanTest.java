@@ -15,7 +15,7 @@ public class DataSourceFactoryBeanTest {
 	
 	@Test
 	public void simple_integration_test() throws Exception {
-		DefaultDataSource ds = (DefaultDataSource) ctx.getBean("ds");
+		DefaultDataSource ds = ctx.getBean("ds", DefaultDataSource.class);
 		assertNotNull(ds);
 		assertEquals("test-ds", ds.getName());
 		
