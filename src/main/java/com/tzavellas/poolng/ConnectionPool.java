@@ -337,11 +337,9 @@ public class ConnectionPool {
 			
 			private Collection<ConnectionHolder> mark(PoolConfig config) {
 				List<ConnectionHolder> idle = new ArrayList<ConnectionHolder>(config.getPoolSize());
-				int i = 0;
 				for (ConnectionHolder ch : available) {
 					if (ch.hasIdleConnection(config.getIdleTimeout())) {
 						idle.add(ch);
-						i++;
 					}
 				}
 				Collections.sort(idle, ConnectionHolder.CREATION_TIME_COMPARATOR);
